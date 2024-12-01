@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -7,10 +8,15 @@ app = Flask(__name__)
 # Enable CORS
 CORS(app)
 
-# Load model and tokenizer
+# Retrieve the Hugging Face API key from the environment variable
+api_key = os.getenv("HUGGINGFACE_API_KEY")
+if not api_key:
+    raise ValueError("Hugging Face API key not found. Ensure HUGGINGFACE_API_KEY is set in the environment.")
+
+# Load the model and tokenizer using the API key
 model_name = "meta-llama/Llama-3.2-1B"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=api_key)
+model = AutoModelForCausalLM.from_pretrained(model_name, use_auth_token=api_key)
 
 def clean_response(response):
     """
@@ -63,4 +69,4 @@ def chat():
     return jsonify({"response": clean_res})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
