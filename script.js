@@ -1,5 +1,7 @@
 // Replace this URL with your actual Render backend URL
-const BACKEND_URL = "https://<your-render-backend-url>";
+const BACKEND_URL = "https://1a47f93c-5dd8-47dd-9d8d-9a8361e5e50e-00-3uhyx3dlqo2z3.worf.replit.dev";
+
+
 
 // Function to send the user's message to the backend and display the response
 async function sendMessage() {
