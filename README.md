@@ -123,7 +123,7 @@ Integrate with third-party APIs for enhanced functionality.
 Credits
 
 <<<<<<< HEAD
-Developed by [Your Name]. Special thanks to OpenAI’s guidance in building this project.
+Developed by Nijee Duncan. Special thanks to OpenAI’s guidance in building this project.
 =======
 Developed by Nijee Duncan. Special thanks to OpenAI’s guidance in building this project.
 >>>>>>> 73b0a364fd509b2daec54e547bd31b3f7521952f
